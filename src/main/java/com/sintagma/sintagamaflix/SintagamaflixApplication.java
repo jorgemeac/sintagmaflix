@@ -1,5 +1,6 @@
 package com.sintagma.sintagamaflix;
 
+import com.sintagma.sintagamaflix.model.DataEpisode;
 import com.sintagma.sintagamaflix.model.DataSeries;
 import com.sintagma.sintagamaflix.service.ConsumerAPI;
 import com.sintagma.sintagamaflix.service.ConvertData;
@@ -16,11 +17,17 @@ public class SintagamaflixApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+
 		var consumerApi = new ConsumerAPI();
-		var json = consumerApi.obterDados("https://www.omdbapi.com/?t=Supernatural&apikey=cdd26d82");
+		var json = consumerApi.getData("https://www.omdbapi.com/?t=Supernatural&apikey=cdd26d82");
 		System.out.println(json);
 		ConvertData convertData = new ConvertData();
 		DataSeries dataSeries = convertData.getData(json, DataSeries.class);
 		System.out.println(dataSeries);
+
+		json = consumerApi.getData("https://www.omdbapi.com/?t=supernatural&season=5&episode=2&apikey=cdd26d82");
+		DataEpisode dataEpisode = convertData.getData(json, DataEpisode.class);
+		System.out.println(dataEpisode);
+
 	}
 }

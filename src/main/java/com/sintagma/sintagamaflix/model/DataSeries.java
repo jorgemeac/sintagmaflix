@@ -9,3 +9,10 @@ public record DataSeries(@JsonAlias("Title") String titleName,
                          @JsonAlias("imdbRating") String assessmentRating,
                          @JsonAlias("Genre") String genre) {
 }
+
+/*Este record pega os valores de:
+titleName - títuloNome
+seasonsTotal - numeroTemporadas
+assessmentRating - avaliacaoSerie
+genre - generoSerie
+ */

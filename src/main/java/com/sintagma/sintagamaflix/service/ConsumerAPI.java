@@ -8,10 +8,11 @@ import java.net.http.HttpResponse;
 
 //Esta é minha classe para consumo das API's
 public class ConsumerAPI {
-    public String obterDados(String addressUrl) {
+    public String getData(String addressUrl) {
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(addressUrl))
+                .uri(URI.create(addressUrl)) //Defini uma variável "addressUrl" do tipo String como PARÂMETRO do método "getData"
+                // para ser chamada como ARGUMENTO na classe principal com o endereço da API
                 .build();
         HttpResponse<String> response = null;
         try {
@@ -24,7 +25,7 @@ public class ConsumerAPI {
         }
 
         String json = response.body();
-        return json;
+        return json; //O método getData vai retornar uma String "json" com os dados obtidos na API
     }
 
 }
