@@ -14,6 +14,6 @@ public record DataEpisode(@JsonAlias("Title") String titleNameEpisode,
 titleNameEpisode - títuloEpisodio
 numberEpisode - numeroEpisodio
 assessmentRatingEpisode - avaliacaoEpsodio
-runTimeEpisode - tempoEpisodio
+runTimeEpisode - duracaoEpisodio
 String releasedEpisode - dataEpisodio
  */
